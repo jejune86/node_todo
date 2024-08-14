@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pages</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+        }
+        .page-number {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pages</h1>
+    <table>
+        <tr th:each="p :${pages}">
+            <table>
+                <tr><td th:text="${p.title}"></td></tr>
+                <tr><td th:text="${p.content}"></td></tr>
+            </table>
+        </tr>
+    </table>
+    <h2>Add a Page</h2>
+    <form action="/pages" method="post">
+        Title : <input type="text" name="title"> <br>
+        Content : <input type="text" step="any" name="content"><br>
+        <button type="submit">Add product</button>
+    </form>
+</body>
+</html>
